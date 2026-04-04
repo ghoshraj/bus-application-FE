@@ -1,0 +1,31 @@
+.simple-page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.simple-page__main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.simple-page__main h1 {
+  margin: 0 0 0.75rem;
+  color: var(--color-heading);
+}
+
+.simple-page__main p {
+  margin: 0 0 1.5rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.simple-page__back {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.simple-page__back:hover {
+  text-decoration: underline;
+}
