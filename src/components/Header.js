@@ -11,7 +11,7 @@ function Header() {
 
   useEffect(() => {
     setHasToken(!!localStorage.getItem("token"));
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -31,7 +31,11 @@ function Header() {
       <nav className="header__nav">
         {hasToken ? (
           <div className="header__profile">
-            <Link to="/profile" className="header__profile-btn" title="Your profile">
+            <Link
+              to="/search?profile=1"
+              className="header__profile-btn"
+              title="Your profile"
+            >
               <span className="header__profile-avatar" aria-hidden>
                 👤
               </span>
