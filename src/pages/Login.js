@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Header from "../components/Header";
 import { AUTH } from "../config/api";
+import { getUserIdFromToken } from "../utils/jwt";
 import "./Auth.css";
 
 function pickToken(body) {
@@ -63,6 +64,9 @@ function Login() {
 
       if (response.ok && token) {
         localStorage.setItem("token", token);
+        const userId = getUserIdFromToken(token);
+        if (userId) localStorage.setItem("userId", userId);
+        else localStorage.removeItem("userId");
         navigate("/search", { replace: true });
       } else if (response.ok && !token) {
         setMessage({

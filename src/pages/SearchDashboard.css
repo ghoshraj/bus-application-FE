@@ -1,6 +1,39 @@
 .dashboard {
   min-height: 100vh;
   background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__split-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.dashboard__split-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Profile open: main ~65–68%, panel ~32–35% */
+.dashboard--split .dashboard__split-body {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.dashboard--split .dashboard__split-main {
+  flex: 1 1 65%;
+}
+
+.dashboard__profile-aside {
+  flex: 0 0 33%;
+  min-width: 280px;
+  max-width: 35%;
+  border-left: 1px solid #e2e8f0;
+  background: #fff;
+  box-shadow: -6px 0 20px rgba(15, 23, 42, 0.06);
 }
 
 .dashboard__layout {
@@ -151,6 +184,21 @@
 
 .dashboard__extra-link:hover {
   color: var(--color-primary-dark);
+}
+
+@media (max-width: 900px) {
+  .dashboard--split .dashboard__split-body {
+    flex-direction: column;
+  }
+
+  .dashboard__profile-aside {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+    max-height: 70vh;
+  }
 }
 
 @media (max-width: 1024px) {
